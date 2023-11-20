@@ -1,8 +1,17 @@
 import Filters from '@/components/Filters'
 import SearchForm from '@/components/SearchForm'
+import { getResource } from '@/sanity/lib/actions'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
+
+  const resource = await getResource({
+    query:'',
+    category:'',
+    page:'1'
+  })
+
+  console.log(resource)
   return (
     <main className='flex-center paddings mx-auto w-full max-w-screen-2xl flex-col'>
       <section className='nav-padding w-full'>
